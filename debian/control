@@ -1,0 +1,12 @@
+Source: waybar-network-applet
+Section: utils
+Priority: extra
+Maintainer: Ilya Bylich <ibylich@gmail.com>
+Standards-Version: VERSION_TEMPLATE
+
+Package: waybar-network-applet
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: ${shlibs:Depends}
+Description: Network widget for waybar

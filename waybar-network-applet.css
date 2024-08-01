@@ -1,0 +1,30 @@
+window {
+    background-color: transparent;
+}
+
+.row-list {
+    border: 5px solid #90A959;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.row {
+    background-color: rgba(100, 100, 100, 0.8);
+    padding: 10px;
+}
+
+.row:hover {
+    background-color: rgba(100, 100, 100, 0.85);
+}
+
+.row {
+    color: #e3e4df;
+}
+
+image {
+    color: #90A959;
+}
+
+image:active {
+    color: rgb(22, 71, 25);
+}

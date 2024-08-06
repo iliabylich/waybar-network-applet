@@ -43,10 +43,10 @@ pub(crate) fn load_css() {
 }
 
 fn load_file(path: &str, provider: &CssProvider) {
-    if let Ok(contents) = std::fs::read_to_string(path) {
+    if let Ok(_) = std::fs::read_to_string(path) {
         println!("[CSS] Reading {path}...");
 
-        provider.load_from_bytes(&gtk4::glib::Bytes::from_owned(contents.into_bytes()));
+        provider.load_from_file(&gtk4::gio::File::for_path(path));
     } else {
         println!("[CSS] Failed to read file {path}");
     }

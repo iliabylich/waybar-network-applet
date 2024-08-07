@@ -4,7 +4,7 @@ pub(crate) struct Args {
     pub(crate) offset_right: i32,
 }
 
-pub(crate) fn parse_args() -> Result<Args, lexopt::Error> {
+fn try_parse_args() -> Result<Args, lexopt::Error> {
     use lexopt::prelude::*;
 
     let mut width = 300;
@@ -20,7 +20,7 @@ pub(crate) fn parse_args() -> Result<Args, lexopt::Error> {
                 offset_right = parser.value()?.parse()?;
             }
             Long("help") => {
-                println!("Usage: waybar-network-applet [--toggle] [--width=N] [--offset-right=N]");
+                println!("Usage: waybar-network-applet [--width=N] [--offset-right=N]");
                 std::process::exit(0);
             }
             _ => return Err(arg.unexpected()),
@@ -30,5 +30,12 @@ pub(crate) fn parse_args() -> Result<Args, lexopt::Error> {
     Ok(Args {
         width,
         offset_right,
+    })
+}
+
+pub(crate) fn parse_args() -> Args {
+    try_parse_args().unwrap_or_else(|e| {
+        eprintln!("{}", e);
+        std::process::exit(1);
     })
 }

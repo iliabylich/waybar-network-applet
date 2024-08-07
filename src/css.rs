@@ -43,7 +43,7 @@ pub(crate) fn load_css() {
 }
 
 fn load_file(path: &str, provider: &CssProvider) {
-    if let Ok(_) = std::fs::read_to_string(path) {
+    if std::fs::read_to_string(path).is_ok() {
         println!("[CSS] Reading {path}...");
 
         provider.load_from_file(&gtk4::gio::File::for_path(path));

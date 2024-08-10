@@ -1,3 +1,4 @@
-/target
 waybar-network-applet
+/.vscode
+*.o
 *.deb

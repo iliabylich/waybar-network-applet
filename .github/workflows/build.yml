@@ -1,0 +1,21 @@
+name: build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    container:
+      image: debian:unstable
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: apt update
+      - run: apt install -y pkg-config make gcc
+      - run: apt install -y libglib2.0-dev libpango1.0-dev libgdk-pixbuf-2.0-dev libgtk-4-dev libgtk4-layer-shell-dev
+
+      - run: make waybar-network-applet

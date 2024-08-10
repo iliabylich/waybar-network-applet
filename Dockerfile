@@ -4,12 +4,11 @@ ARG BUILD_VERSION
 RUN apt update
 
 RUN apt install -y debhelper pkg-config
-RUN apt install -y rustc libglib2.0-dev libpango1.0-dev libgdk-pixbuf-2.0-dev libgtk-4-dev libgtk4-layer-shell-dev
+RUN apt install -y libglib2.0-dev libpango1.0-dev libgdk-pixbuf-2.0-dev libgtk-4-dev libgtk4-layer-shell-dev
 
-RUN mkdir -p /build/waybar-network-applet-$BUILD_VERSION
-COPY src /build/waybar-network-applet-$BUILD_VERSION/src
-COPY Cargo.toml /build/waybar-network-applet-$BUILD_VERSION/Cargo.toml
-COPY Cargo.lock /build/waybar-network-applet-$BUILD_VERSION/Cargo.lock
+COPY *.c /build/waybar-network-applet-$BUILD_VERSION/
+COPY *.h /build/waybar-network-applet-$BUILD_VERSION/
+COPY Makefile /build/waybar-network-applet-$BUILD_VERSION/
 COPY debian /build/waybar-network-applet-$BUILD_VERSION/debian
 
 WORKDIR /build/waybar-network-applet-$BUILD_VERSION

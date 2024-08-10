@@ -1,0 +1,6 @@
+#ifndef WAYBAR_NETWORK_APPLET_CSS_H
+#define WAYBAR_NETWORK_APPLET_CSS_H
+
+void load_css();
+
+#endif // WAYBAR_NETWORK_APPLET_CSS_H

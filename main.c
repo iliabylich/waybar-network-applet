@@ -2,6 +2,7 @@
 #include "network-list.h"
 #include "ui.h"
 #include "css.h"
+#include "args.h"
 
 void on_activate(GtkApplication *app, gpointer data)
 {
@@ -21,8 +22,10 @@ void on_startup()
     load_css();
 }
 
-int main()
+int main(int argc, char **argv)
 {
+    parse_args(argc, argv);
+
     GtkApplication *app = gtk_application_new(
         "com.ilyabylich.waybar_network_applet",
         G_APPLICATION_HANDLES_OPEN);

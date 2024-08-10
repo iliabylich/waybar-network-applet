@@ -4,6 +4,7 @@
 #include "network-list.h"
 #include "actions.h"
 #include "row.h"
+#include "args.h"
 
 GtkWindow *make_window(GtkApplication *app);
 GtkBox *make_wrapper(GtkWindow *window);
@@ -39,7 +40,7 @@ GtkWindow *make_ui(GtkApplication *app)
 GtkWindow *make_window(GtkApplication *app)
 {
     GtkWindow *window = GTK_WINDOW(gtk_application_window_new(app));
-    gtk_window_set_default_size(window, 300, 0); // FIXME
+    gtk_window_set_default_size(window, get_width(), 0);
 
     gtk_layer_init_for_window(window);
     gtk_layer_set_layer(window, GTK_LAYER_SHELL_LAYER_OVERLAY);
@@ -47,7 +48,7 @@ GtkWindow *make_window(GtkApplication *app)
     gtk_layer_auto_exclusive_zone_enable(window);
     gtk_layer_set_anchor(window, GTK_LAYER_SHELL_EDGE_TOP, true);
     gtk_layer_set_anchor(window, GTK_LAYER_SHELL_EDGE_RIGHT, true);
-    gtk_layer_set_margin(window, GTK_LAYER_SHELL_EDGE_RIGHT, 100); // FIXME
+    gtk_layer_set_margin(window, GTK_LAYER_SHELL_EDGE_RIGHT, get_offset_right());
 
     return window;
 }

@@ -17,7 +17,7 @@ restore_point_t *make_restore_point(row_t *row)
 
 void copy_ip(
     GtkGesture *self,
-    GdkEventSequence *sequence,
+    GdkEventSequence *,
     gpointer data)
 {
     gtk_gesture_set_state(self, GTK_EVENT_SEQUENCE_CLAIMED);
@@ -37,7 +37,7 @@ void copy_ip(
 
 void open_settings(
     GtkGesture *self,
-    GdkEventSequence *sequence,
+    GdkEventSequence *,
     gpointer data)
 {
     gtk_gesture_set_state(self, GTK_EVENT_SEQUENCE_CLAIMED);
@@ -48,7 +48,7 @@ void open_settings(
 
 void close_widget(
     GtkGesture *self,
-    GdkEventSequence *sequence,
+    GdkEventSequence *,
     gpointer data)
 {
     gtk_gesture_set_state(self, GTK_EVENT_SEQUENCE_CLAIMED);

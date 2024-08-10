@@ -1,10 +1,10 @@
 #include <gtk/gtk.h>
 #include "css.h"
 
-void on_parsing_error(GtkCssProvider *self,
+void on_parsing_error(GtkCssProvider *,
                       GtkCssSection *section,
                       GError *error,
-                      gpointer data)
+                      gpointer)
 {
     fprintf(stderr, "Failed to parse CSS:\n%s\n%s\n", gtk_css_section_to_string(section), error->message);
 }

@@ -4,7 +4,7 @@
 #include "css.h"
 #include "args.h"
 
-void on_activate(GtkApplication *app, gpointer data)
+void on_activate(GtkApplication *app, gpointer)
 {
     GtkWindow *window = make_ui(app);
     gtk_window_present(window);

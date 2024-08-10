@@ -21,7 +21,6 @@ network_list_t new_network_list()
     network_list_t out = {0};
 
     struct ifaddrs *ifaddr;
-    int family, s;
     char host[NI_MAXHOST];
 
     if (getifaddrs(&ifaddr) == -1)
